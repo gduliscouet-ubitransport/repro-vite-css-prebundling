@@ -1,12 +1,14 @@
-import Vue from "vue";
+import { createVuetify } from "vuetify";
+import { createApp } from "vue";
 import App from "./App.vue";
 
-// SETUP: vuetify
-import Vuetify from "vuetify/lib";
-Vue.use(Vuetify);
-const vuetify = new Vuetify();
+const app = createApp(App);
+const vuetify = createVuetify({
+  theme: {
+    defaultTheme: "dark",
+  },
+});
 
-new Vue({
-  vuetify,
-  render: (h) => h(App),
-}).$mount("#app");
+app.use(vuetify);
+
+app.mount("#app");
